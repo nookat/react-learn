@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+
+<div id="app"></div>
+
+
+<script type="text/babel">
+
+  const Preloader = (props) => {
+    return props.isLoading ? <h2>Идет загрузка</h2> : <h2>Загрузилось</h2>;
+  };
+
+  const App = () => {
+    const isLoading = false;
+
+    return (
+      <div>
+        <Preloader isLoading={isLoading}/>
+      </div>
+    );
+  };
+
+  const domContainer = document.querySelector('#app');
+  const root = ReactDOM.createRoot(domContainer);
+  root.render(<App/>);
+</script>
+</body>
+</html>
